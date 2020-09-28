@@ -40,3 +40,8 @@ csv file, the first column is content, the second column is label, where the fir
 generate_data.py提供了从MongDB中读取CSV文件的一种方法，仅供参考。MongoDB中的代码和数据来源恕不提供
 
 generate_data.py provides a method to prepare CSV files from MongoDB, for reference only. Code and data sources in MongoDB will not be provided
+
+# 数据平衡  Data Balancing
+训练集各种类的数据数量需要平衡，对于不平衡的数据，data_prepare文件夹中提供了一种文本增强方法
+
+The amount of data with different labels in the training set needs to be balanced. For unbalanced data set, a text enhancement method is provided in the data_prepare folder
