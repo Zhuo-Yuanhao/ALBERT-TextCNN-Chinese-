@@ -34,12 +34,7 @@ class Hyperparamters:
 
     # Sequence and Label
     sequence_length = 300
-    num_labels = 3
-    dict_label = {
-        '0': '0',
-        '1': '1',
-        '2': '2',}
-    '''
+    num_labels = 25
     dict_label = {
         '0': '0',
         '1': '1',
@@ -66,7 +61,6 @@ class Hyperparamters:
         '22': '22',
         '23': '23',
         '24': '24'}
-    '''
     # ALBERT parameters
     name = 'albert_small_zh_google'
     bert_path = os.path.join(pwd, name)
