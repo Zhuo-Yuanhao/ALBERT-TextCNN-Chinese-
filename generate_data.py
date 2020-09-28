@@ -9,7 +9,7 @@ import codecs
 import pymongo
 import csv
 # db名和表名要改！！！
-mongo_url = "192.168.0.124:27017"
+mongo_url = "X.X.X.X:27017"
 DATABASE = "nlp"
 TRAININGTABLE="test_train"
 VALTABLE="test_val"
