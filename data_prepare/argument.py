@@ -1,4 +1,3 @@
-
 from eda import *
 import argparse
 ap = argparse.ArgumentParser()
@@ -36,7 +35,7 @@ def gen_eda(train_orig, output_file, alpha, num_aug=8):
         for line in fileTrainRaw:  # 按行读取文件
     #for i, line in enumerate(lines):
             try:
-                parts = line[:-1].split('\t')    #使用[:-1]是把\n去掉了
+                parts = line[:-1].split('\t')   
                 label = parts[0]
                 sentence = parts[1]
                 aug_sentences = eda(sentence, alpha_sr=alpha, alpha_ri=alpha, alpha_rs=alpha, p_rd=alpha, num_aug=num_aug)
@@ -48,7 +47,7 @@ def gen_eda(train_orig, output_file, alpha, num_aug=8):
                 print("error sentence")
             n=n+1
     writer.close()
-    print("已生成增强语句!")
+    print("Done!")
     print(output_file)
 
 if __name__ == "__main__":
