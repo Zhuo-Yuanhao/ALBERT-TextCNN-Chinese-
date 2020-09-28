@@ -3,27 +3,20 @@ import synonyms
 import random
 from random import shuffle
 
-random.seed(2019)
+random.seed(2020)
 
-# 停用词列表，默认使用哈工大停用词表
-f = open('C:/Users/15337/Desktop/TF_code/EDA_NLP_for_Chinese-master/stopwords/hit_stopwords.txt',encoding='utf-8')
+# Stop Words, provided by Harbin Institute of Technology
+f = open('WRITE THE PATH OF THE STOP WORDS FILE HERE',encoding='utf-8')
 stop_words = list()
 for stop_word in f.readlines():
     stop_words.append(stop_word[:-1])
 
-# 考虑到与英文的不同，暂时搁置
-# 文本清理
-'''
-import re
-def get_only_chars(line):
-    #1.清除所有的数字
-'''
 
 
-########################################################################
-# 同义词替换
-# 替换一个语句中的n个单词为其同义词
-########################################################################
+"""
+方法1：同义词替换，将分词后的文本中的随机若干个词替换为同义词表中的同义词
+Method 1: Synonym replacement, replace several random words in the text after word segmentation with synonyms in the synonym table
+"""
 def synonym_replacement(words, n):
     new_words = words.copy()
     random_word_list = list(set([word for word in words if word not in stop_words]))
@@ -48,10 +41,10 @@ def get_synonyms(word):
     return synonyms.nearby(word)[0]
 
 
-########################################################################
-# 随机插入
-# 随机在语句中插入n个词
-########################################################################
+"""
+方法2：插入n个词
+Method 2: Insert n words
+"""
 def random_insertion(words, n):
     new_words = words.copy()
     for _ in range(n):
@@ -73,10 +66,10 @@ def add_word(new_words):
     new_words.insert(random_idx, random_synonym)
 
 
-########################################################################
-# Random swap
-# Randomly swap two words in the sentence n times
-########################################################################
+"""
+方法3：随机交换词
+Method 3: Swap words randomly
+"""
 
 def random_swap(words, n):
     new_words = words.copy()
@@ -98,10 +91,10 @@ def swap_word(new_words):
     return new_words
 
 
-########################################################################
-# 随机删除
-# 以概率p删除语句中的词
-########################################################################
+"""
+方法4：随机删除词
+Method 4: Delete words randomly
+"""
 def random_deletion(words, p):
     if len(words) == 1:
         return words
@@ -135,22 +128,22 @@ def eda(sentence, alpha_sr=0.1, alpha_ri=0.1, alpha_rs=0.1, p_rd=0.1, num_aug=9)
 
     # print(words, "\n")
 
-    # 同义词替换sr
+    # Method 1
     for _ in range(num_new_per_technique):
         a_words = synonym_replacement(words, n_sr)
         augmented_sentences.append(' '.join(a_words))
 
-    # 随机插入ri
+    # Method 2
     for _ in range(num_new_per_technique):
         a_words = random_insertion(words, n_ri)
         augmented_sentences.append(' '.join(a_words))
 
-    # 随机交换rs
+    # Method 3
     for _ in range(num_new_per_technique):
         a_words = random_swap(words, n_rs)
         augmented_sentences.append(' '.join(a_words))
 
-    # 随机删除rd
+    # Method 4
     for _ in range(num_new_per_technique):
         a_words = random_deletion(words, p_rd)
         augmented_sentences.append(' '.join(a_words))
@@ -169,5 +162,3 @@ def eda(sentence, alpha_sr=0.1, alpha_ri=0.1, alpha_rs=0.1, p_rd=0.1, num_aug=9)
     return augmented_sentences
 
 
-# 测试用例
-#print(eda(sentence="我们就像蒲公英，我也祈祷着能和你飞去同一片土地"))
