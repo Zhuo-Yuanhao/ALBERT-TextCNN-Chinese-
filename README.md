@@ -35,3 +35,8 @@ testCNN和testLSTM在modules里定义,需要修改网络可自行更改
 csv文件，第一列content，第二列label，其中第一行为表头，就是content和label，label为要与classifier_utils.py中定义一样
 
 csv file, the first column is content, the second column is label, where the first row is the header, which is content and label, label have to be the same as defined in classifier_utils.py
+
+
+generate_data.py提供了从MongDB中读取CSV文件的一种方法，仅供参考。MongoDB中的代码和数据来源恕不提供
+
+generate_data.py provides a method to prepare CSV files from MongoDB, for reference only. Code and data sources in MongoDB will not be provided
