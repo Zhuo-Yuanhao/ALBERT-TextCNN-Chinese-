@@ -5,7 +5,6 @@ filePath = 'EDA_PATH.txt'
 fileSegWordDonePath = 'Done_PATH.txt'
 
 fileTrainRead = []
-j=1
 a=""
 repeat=0
 with open(filePath, encoding='utf-8') as fileTrainRaw:
