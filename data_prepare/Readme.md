@@ -24,4 +24,14 @@ Method 3: Swap words randomly
 Method 4: Delete words randomly
 
 # 其他描述  Other description
-EDA.py为
+eda.py为函数文件，定义四个方法具体实现方式
+
+arguement.py为实际执行EDA的文件，改文件内的参数，路径均需要修改
+
+delete_space.py为可选文件，EDA会将文本分词，如不需要这项操作，运行完arguement.py后需要去空格
+
+eda.py is a function file, which defines the specific implementation of four methods
+
+arguement.py is the file that actually executes EDA, the parameters and paths in the file need to be modified
+
+delete_space.py is an optional file. EDA will split the text by words. If this operation is not required, you need to remove the space after running argument.py
