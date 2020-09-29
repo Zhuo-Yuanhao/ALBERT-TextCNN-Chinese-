@@ -24,7 +24,7 @@ Method 3: Swap words randomly
 Method 4: Delete words randomly
 
 # 感谢  Acknowledge & Reference
-本部分代码基本照搬了https://github.com/zhanlaoban/EDA_NLP_for_Chinese 中的方法，仅进行了一定的修改使之能适用于MongoDB
+本部分代码基本照搬了https://github.com/zhanlaoban/EDA_NLP_for_Chinese 中的方法，仅进行了一定的修改使之能适用于不分词的任务
 
 # 其他描述  Other description
 eda.py为函数文件，定义四个方法具体实现方式
