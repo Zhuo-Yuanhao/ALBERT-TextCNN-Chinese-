@@ -3,7 +3,7 @@ import sys
 
 #文档的目录要改
 
-pwd = os.path.dirname("F:/project_data_model/p3.2_data/readme.txt")
+pwd = os.path.dirname("F:/project_data_model/p3.2_data/readme.txt")#只是用来标注文件夹位置，仅此而已，readme可以是个空文件
 sys.path.append(pwd)
 print('pwd:', pwd)
 
@@ -16,8 +16,8 @@ class Hyperparamters:
     summary_step = 10
     num_saved_per_epoch = 3
     max_to_keep = 100
-    logdir = 'F:/project_data_model/p3.2_data/logdir/25cat_125W'
-    file_save_model = 'F:/project_data_model/p3.2_data/model/ALBERT_model1'
+    logdir = '.../logdir/25cat_125W'
+    file_save_model = '.../ALBERT_model1'#保存模型的地址，这是个文件夹，会存多个model
 
     # Optimization parameters
     num_train_epochs = 20
@@ -28,12 +28,12 @@ class Hyperparamters:
 
     # TextCNN parameters
     num_filters = 128
-    filter_sizes = [2, 3, 4, 5, 6, 7]#[2, 3, 4, 5, 6, 7]
+    filter_sizes = [2, 3, 4, 5, 6, 7]#这玩意儿定义CNN的结构
     embedding_size = 384
     keep_prob = 0.5
 
     # Sequence and Label
-    sequence_length = 300
+    sequence_length = 300#最大也不能超过512
     num_labels = 25
     dict_label = {
         '0': '0',
