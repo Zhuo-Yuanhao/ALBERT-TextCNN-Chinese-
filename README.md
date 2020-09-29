@@ -4,7 +4,7 @@
 基于ALBERT对于中文文本的单标签分类，
 Single-label classification of Chinese text based on ALBERT
 
-# 感谢  Acknowledgement
+# 感谢  Acknowledgement & Reference
 本项目是基于https://github.com/hellonlp/sentiment_analysis_albert 对tensorflow2.x的debug，以及部分细节的修改
 
 This Project is based on https://github.com/hellonlp/sentiment_analysis_albert.
