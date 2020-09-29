@@ -20,7 +20,7 @@ db_des_training = db_des[TRAININGTABLE]
 db_des_val = db_des[VALTABLE]
 
 #首先处理train
-search=db_des_training.find(no_cursor_timeout = True)
+search=db_des_training.find(no_cursor_timeout = True)#no_cursor_timeout = True不加的话MongoDB会超时
 i=0
 data=[]
 data.append(("content","label"))
@@ -34,7 +34,7 @@ for record in search:
     i=i+1
     if i%1000==0:
         print("------finished loading train set #",i)
-f = codecs.open('F:/project_data_model/p3.2_data/data/sa_train.csv','w','utf-8')#这个地址要改！！！！
+f = codecs.open('.../sa_train.csv','w','utf-8')#这个地址要改！！！！
 writer = csv.writer(f)
 for i in data:
     writer.writerow(i)
@@ -42,7 +42,7 @@ f.close()
 
 
 #然后处理val
-search=db_des_val.find(no_cursor_timeout = True)
+search=db_des_val.find(no_cursor_timeout = True)#no_cursor_timeout = True不加的话MongoDB会超时
 i=0
 data=[]
 data.append(("content","label"))
@@ -56,7 +56,7 @@ for record in search:
     i=i+1
     if i%1000==0:
         print("------finished loading val set #",i)
-f = codecs.open('F:/project_data_model/p3.2_data/data/sa_test.csv','w','utf-8')#这个地址要改！！！！
+f = codecs.open('.../sa_test.csv','w','utf-8')#这个地址要改！！！！
 writer = csv.writer(f)
 for i in data:
     writer.writerow(i)
