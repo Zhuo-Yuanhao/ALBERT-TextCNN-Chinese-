@@ -1,5 +1,4 @@
 import os
-#os.environ["CUDA_VISIBLE_DEVICES"] = '-1'
 import numpy as np
 import tensorflow as tf
 from classifier_utils import get_features,get_features_test
@@ -54,6 +53,7 @@ with sess.as_default():
             # Optimizer
             sess.run(MODEL.optimizer, feed_dict = fd)
             # Tensorboard
+            # Tf2这个部分会报错，暂时还没解决这个问题，而且tensorboard对我没有太大用，所以我直接注释掉了
             '''
             if j%hp.summary_step==0:
                 summary,glolal_step = sess.run([MODEL.merged,MODEL.global_step], feed_dict = fd)
