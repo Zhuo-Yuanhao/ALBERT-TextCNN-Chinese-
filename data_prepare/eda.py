@@ -114,14 +114,14 @@ def random_deletion(words, p):
 
 ########################################################################
 # EDA函数
-def eda(sentence, alpha_sr=0.1, alpha_ri=0.1, alpha_rs=0.1, p_rd=0.1, num_aug=9):
+def eda(sentence, alpha_sr=0.1, alpha_ri=0.1, alpha_rs=0.1, p_rd=0.1, num_aug=9):#这里的参数只是随便写了个默认值，反正调用的时候要根据实际情况重新赋值
     seg_list = jieba.cut(sentence)
     seg_list = " ".join(seg_list)
     words = list(seg_list.split())
     num_words = len(words)
 
     augmented_sentences = []
-    num_new_per_technique = int(num_aug / 4) + 1
+    num_new_per_technique = int(num_aug / 4) + 1#注意这里生成的总条数有+1，调用时要注意
     n_sr = max(1, int(alpha_sr * num_words))
     n_ri = max(1, int(alpha_ri * num_words))
     n_rs = max(1, int(alpha_rs * num_words))
@@ -129,7 +129,7 @@ def eda(sentence, alpha_sr=0.1, alpha_ri=0.1, alpha_rs=0.1, p_rd=0.1, num_aug=9)
     # print(words, "\n")
 
     # Method 1
-    for _ in range(num_new_per_technique):
+    for _ in range(num_new_per_technique):#根据需要增强的条数，四分之一进行方法一，下同
         a_words = synonym_replacement(words, n_sr)
         augmented_sentences.append(' '.join(a_words))
 
