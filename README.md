@@ -24,6 +24,10 @@ six                      1.15.0
 
 sentencepiece            0.1.91
 
+其他：tensorboard中的部分用于画图的函数在tf2中实在找不到合适的替换函数，考虑到这部分函数的功能仅仅只是画图，因此我直接选择了注释掉这部分代码
+
+PS: Some of the functions used for plots in tensorboard can not find a suitable replacement function in tf2. Considering that the purpose of this part of the function is only drawing plots, so I directly chose to comment out this part of the code.
+
 # 对不同的项目，必定需要修改的有 For different projects, the following parts must be modifications：
 hyperparameters.py:	所有参数可能都要改 ALL parameters including file path needed to be changed for different tasks
 
