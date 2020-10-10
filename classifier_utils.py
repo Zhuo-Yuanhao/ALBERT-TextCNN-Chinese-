@@ -740,7 +740,6 @@ def get_feature_test(sentence):
 
 
 if __name__ == '__main__':
-    #  Get feature
     sentence = '测试语句：我好想睡觉啊啊啊啊啊啊啊'
     feature = get_feature_test(sentence)
     print('feature.input_ids', feature[0])
