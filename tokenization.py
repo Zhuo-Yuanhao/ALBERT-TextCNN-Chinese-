@@ -1,3 +1,8 @@
+"""
+  这也是谷歌写的代码，除为tf2的调整外没有做任何调整。
+  值得注意的一点是autokeras1.0.9的BertBlock也调用了这部分代码，但是在新的autokeras中这部分有些微的修改，我暂时还没太注意具体改了些啥
+  autokeras用的是42行左右准备的一个常见模型，但事实上这个程序也有准备中文模型和多语言模型。
+"""
 from __future__ import absolute_import
 from __future__ import division
 from __future__ import print_function
@@ -33,7 +38,7 @@ def validate_case_matches_checkpoint(do_lower_case, init_checkpoint):
   model_name = m.group(1)
 
   lower_models = [
-      "uncased_L-24_H-1024_A-16", "uncased_L-12_H-768_A-12",
+      "uncased_L-24_H-1024_A-16", "uncased_L-12_H-768_A-12",#autokeras用的是这个模型
       "multilingual_L-12_H-768_A-12", "chinese_L-12_H-768_A-12"
   ]
 
@@ -181,6 +186,8 @@ def load_vocab(vocab_file):
       if not token:
         break
       token = token.strip()#.split()[0]
+      # 谷歌发布的原始BERT代码中，上面一行最后还有被我注释掉的这一小部分代码，但是在tf2中这是个bug，autokeras代码也做了同样的修改。
+      # 如果这部分换环境后发生问题可以尝试补回去
       if token not in vocab:
         vocab[token] = len(vocab)
   return vocab
