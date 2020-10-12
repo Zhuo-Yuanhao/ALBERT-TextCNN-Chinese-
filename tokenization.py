@@ -2,6 +2,7 @@
   这也是谷歌写的代码，除为tf2的调整外没有做任何调整。
   值得注意的一点是autokeras1.0.9的BertBlock也调用了这部分代码，但是在新的autokeras中这部分有些微的修改，我暂时还没太注意具体改了些啥
   autokeras用的是42行左右准备的一个常见模型，但事实上这个程序也有准备中文模型和多语言模型。
+  365行左右也有专门针对中文的处理函数
 """
 from __future__ import absolute_import
 from __future__ import division
