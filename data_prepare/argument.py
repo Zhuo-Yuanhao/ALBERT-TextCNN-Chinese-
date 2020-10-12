@@ -1,3 +1,4 @@
+######这才是实际运行的程序！！！！
 from eda import *
 import argparse
 ap = argparse.ArgumentParser()
@@ -11,7 +12,7 @@ ap = argparse.ArgumentParser()
     Another purpose is to tell people who use this code for the first time what these parameters do, and nothing more.
     Keep one of the duplicated parts after familiarizing with the code
     
-    Please understand that the comments in the rest part of the code uses Chinese
+    Please forgive me that the comments in the rest part of the code uses Chinese
 """
 ap.add_argument("--input",default='F:/project_data_model/p2.3_data/July-Aug23/x_pure_text.txt', required=False, type=str, help="原始数据的输入文件目录")
 ap.add_argument("--output",default='F:/project_data_model/p2.3_data/July-Aug23/argumented_data1.txt', required=False, type=str, help="增强数据后的输出文件目录")
