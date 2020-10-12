@@ -1,3 +1,7 @@
+"""
+  这部分是谷歌写的代码，除了为tf2做的微调之外没有做任何修改。这个代码本质上就是多定义了个优化器
+  This part of the code is written by Google, I didn't change anything except for the fine-tuning for tf2.
+"""
 from __future__ import absolute_import
 from __future__ import division
 from __future__ import print_function
