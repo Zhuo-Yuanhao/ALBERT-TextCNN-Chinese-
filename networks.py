@@ -28,7 +28,10 @@ def count_model_params():
     print('  + Number of params: %.2fM' % (total_parameters / 1e6))
 
 
-class NetworkAlbert(object):
+class NetworkAlbert(object):#搭建（恢复）ALBERT网络、TextCNN。
+    # 这个网络实际上是用ALBERT取代了autokeras模型的textinput、textvectorization和embedding
+    # 用TextCNN取代了autokeras的CNN，同时最后加了全连接层。
+    # 其中ALBERT地址，TextCNN相关参数等信息在hyperparameter.py中定义
     def __init__(self, is_training):
         self.is_training = is_training
         self.input_ids = tf.compat.v1.placeholder(tf.int32, shape=[None, hp.sequence_length], name='input_ids')
@@ -96,8 +99,8 @@ class NetworkAlbert(object):
                 # Global_step
                 self.global_step = tf.Variable(0, name='global_step', trainable=False)
                 # Loss
-                log_probs = tf.nn.log_softmax(self.logits, axis=-1)#似乎是预测的结果
-                one_hot_labels = tf.one_hot(self.label_ids, depth=num_labels, dtype=tf.float32)#似乎是正确答案
+                log_probs = tf.nn.log_softmax(self.logits, axis=-1)#预测的结果
+                one_hot_labels = tf.one_hot(self.label_ids, depth=num_labels, dtype=tf.float32)#标签的onehot（用于后续做loss和acc）
                 per_example_loss = -tf.reduce_sum(one_hot_labels * log_probs, axis=-1)
                 self.loss = tf.reduce_mean(per_example_loss)
                 # Optimizer
