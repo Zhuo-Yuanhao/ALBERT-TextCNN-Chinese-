@@ -3,18 +3,18 @@ import pandas as pd
 import numpy as np
 
 
-def time_now_string():
+def time_now_string():#时间戳
     return time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(time.time()))
 
 
-def load_csv(file, header=0, encoding="utf-8"):
+def load_csv(file, header=0, encoding="utf-8"):#读csv
     return pd.read_csv(file,
                        encoding=encoding,
                        header=header,
                        error_bad_lines=False)
 
 
-def save_csv(dataframe, file, header=True, index=None, encoding="utf-8"):
+def save_csv(dataframe, file, header=True, index=None, encoding="utf-8"):#写csv
     return dataframe.to_csv(file,
                             mode='w+',
                             header=header,
@@ -22,13 +22,13 @@ def save_csv(dataframe, file, header=True, index=None, encoding="utf-8"):
                             encoding=encoding)
 
 
-def save_excel(dataframe, file, header=True, sheetname='Sheet1'):
+def save_excel(dataframe, file, header=True, sheetname='Sheet1'):#写excel
     return dataframe.to_excel(file,
                               header=header,
                               sheet_name=sheetname)
 
 
-def load_excel(file, header=0, sheetname=None):
+def load_excel(file, header=0, sheetname=None):#读excel
     dfs = pd.read_excel(file,
                         header=header,
                         sheet_name=sheetname)
@@ -39,14 +39,14 @@ def load_excel(file, header=0, sheetname=None):
     return df.fillna("")
 
 
-def load_txt(file):
+def load_txt(file):#读txt
     with  open(file, encoding='utf-8', errors='ignore') as fp:
         lines = fp.readlines()
         lines = [l.strip() for l in lines]
     return lines
 
 
-def save_txt(file, lines):
+def save_txt(file, lines):#写txt
     lines = [l + '\n' for l in lines]
     with  open(file, 'w+', encoding='utf-8') as fp:  # a+添加
         fp.writelines(lines)
@@ -57,6 +57,7 @@ def select(data, ids):
 
 
 def shuffle_one(a1):
+    # 随机打算一个
     ran = np.arange(len(a1))
     np.random.shuffle(ran)
     a1_ = [a1[l] for l in ran]
@@ -76,6 +77,7 @@ def shuffle_two(a1, a2):
 
 def load_vocabulary(file_vocabulary_label):
     """
+    读取字典
     Load vocabulary to dict
     """
     vocabulary = load_txt(file_vocabulary_label)
