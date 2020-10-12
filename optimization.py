@@ -1,3 +1,8 @@
+"""
+  谷歌写的代码，除了微调以适应TF2之外未作任何调整。本段程序的目的是定义优化器，所以也基本不需要做其他改动
+  
+  This part of the code is written by Google, I didn't change anything except for the fine-tuning for tf2.
+"""
 from __future__ import absolute_import
 from __future__ import division
 from __future__ import print_function
