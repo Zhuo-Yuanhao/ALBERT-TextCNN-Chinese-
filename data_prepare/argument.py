@@ -14,8 +14,8 @@ ap = argparse.ArgumentParser()
     
     Please forgive me that the comments in the rest part of the code uses Chinese
 """
-ap.add_argument("--input",default='F:/project_data_model/p2.3_data/July-Aug23/x_pure_text.txt', required=False, type=str, help="原始数据的输入文件目录")
-ap.add_argument("--output",default='F:/project_data_model/p2.3_data/July-Aug23/argumented_data1.txt', required=False, type=str, help="增强数据后的输出文件目录")
+ap.add_argument("--input",default='.../file.txt', required=False, type=str, help="原始数据的输入文件目录")
+ap.add_argument("--output",default='.../argumented_data.txt', required=False, type=str, help="增强数据后的输出文件目录")
 ap.add_argument("--num_aug", default=6 ,required=False, type=int, help="每条原始语句增强的语句数，注意要-1")
 #上面这一行：有一句话，算上这句话要生成10句话，这个值选9，输出的第一条为这句话本身，然后增强出9句话
 ap.add_argument("--alpha", default=0.08,required=False, type=float, help="每条语句中将会被改变的单词数占比")
@@ -24,7 +24,7 @@ args = ap.parse_args()
 #重新定义输出文件的目录
 output = None
 if args.output:
-    output = 'F:/project_data_model/p2.3_data/July-Aug23/argumented_data1.txt'
+    output = '.../argumented_data.txt'
 else:
     from os.path import dirname, basename, join
     output = join(dirname(args.input), 'eda_' + basename(args.input))
@@ -65,4 +65,4 @@ def gen_eda(train_orig, output_file, alpha, num_aug=8):
     print(output_file)
 
 if __name__ == "__main__":
-    gen_eda('F:/project_data_model/p2.3_data/July-Aug23/x_pure_text.txt', output, alpha=alpha, num_aug=num_aug)#调用eda
+    gen_eda('.../file.txt', output, alpha=alpha, num_aug=num_aug)#调用eda
