@@ -9,11 +9,10 @@ a=""
 repeat=0
 with open(filePath, encoding='utf-8') as fileTrainRaw:
     for line in fileTrainRaw:  # 按行读取文件
-        #按照实际情况确定需要删掉的符号、字母、数字等
         lane=line
         line=line.split('\t')
         length=len(line)
-        for i in ' ★」「『』':
+        for i in ' ★」「『』':  ######除开空格外，还可按照实际情况确定需要删掉的符号、字母、数字等
             lane = lane.replace(i, '')
         fileTrainRead.append(lane)
 
