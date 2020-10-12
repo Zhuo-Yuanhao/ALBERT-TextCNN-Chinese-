@@ -1,3 +1,15 @@
+"""
+
+  这是谷歌写的代码，并没有做太多修改。但有一点需要注意的是，此处定义的AlbertConfig中的参数在后续调用时需要根据实际所使用的模型的参数做修改。
+  这个参数是为alber_xxlarge而设置的，而我最终所使用的是albert_small，以hidden_size为例，xxlarge为4096，而我用的small为384.实际调用时需要改这个值。
+  具体这些参数可以在下载的模型文件包里的albert_config.json文件中看到（用txt打开）
+  具体的每个class的注释谷歌已经写了我就不再额外加了
+  
+  This is the code written by Google without much modification. But one thing to note is that the parameters in the AlbertConfig defined here need to be modified according to the parameters of the actual model used in subsequent calls.
+  This parameter is set for alber_xxlarge, and what I finally used is albert_small, taking hidden_size as an example, xxlarge is 4096, and the small I used is 384. This value needs to be changed when actually calling this function.
+  The specific parameters can be seen in the albert_config.json file in the downloaded model file package (open with txt)
+
+"""
 from __future__ import absolute_import
 from __future__ import division
 from __future__ import print_function
@@ -18,7 +30,7 @@ class AlbertConfig(object):
   """Configuration for `AlbertModel`.
   The default settings match the configuration of model `albert_xxlarge`.
   """
-
+  
   def __init__(self,
                vocab_size,
                embedding_size=128,
@@ -29,7 +41,7 @@ class AlbertConfig(object):
                intermediate_size=16384,
                inner_group_num=1,
                down_scale_factor=1,
-               hidden_act="gelu",
+               hidden_act="gelu",#gelu是自己谷歌定义的一个优于relu的玩意儿，不用改 数学表达式等可见276行左右
                hidden_dropout_prob=0,
                attention_probs_dropout_prob=0,
                max_position_embeddings=512,
