@@ -1,3 +1,9 @@
+"""
+     这是实际训练时所要运行的代码
+     由于processor和项目目的不同，与谷歌ALBERT的训练代码有一定不同，不过processor被分摊到了其他几个代码文件中，因此这部分只有几个基础的功能
+     对于tensorboard部分，tf2中我暂时没有找到合适的替换函数，且tensorboard对我而言是个可有可无的部分，所以我直接注释掉了那一部分代码
+     另：原作者在训练的过程中只关注了loss，完全没有关注acc，因此我自行补充了acc部分。acc部分的计算函数在network.py中。
+"""
 import os
 import numpy as np
 import tensorflow as tf
@@ -53,7 +59,8 @@ with sess.as_default():
             # Optimizer
             sess.run(MODEL.optimizer, feed_dict = fd)
             # Tensorboard
-            # Tf2这个部分会报错，暂时还没解决这个问题，而且tensorboard对我没有太大用，所以我直接注释掉了
+            # Tf2这个部分会报错，暂时还没解决这个问题
+            # 而且tensorboard对我没有太大用，所以我直接注释掉了
             '''
             if j%hp.summary_step==0:
                 summary,glolal_step = sess.run([MODEL.merged,MODEL.global_step], feed_dict = fd)
