@@ -1,3 +1,7 @@
+"""
+    这个modules定义了TextCNN和LSTM（但其实并没有用到）
+    CNN相关的参数在hyperprameter中定义，本部分只是具体CNN模型的框架搭建，调参仍旧在hyperprameter.py中调
+"""
 import tensorflow as tf
 #from tensorflow.contrib.rnn import DropoutWrapper
 from hyperparameters import Hyperparamters as hp
